@@ -7,7 +7,7 @@ interface IProps {
   breed: string;
   images: string[];
   location: string;
-  id: number
+  id: number;
 }
 
 const Pet = (props: IProps) => {

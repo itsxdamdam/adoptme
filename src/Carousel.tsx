@@ -1,7 +1,7 @@
 import { Component, MouseEvent } from "react";
 
 interface IProps {
-  images: string[]
+  images: string[];
 }
 
 class Carousel extends Component<IProps> {
@@ -14,16 +14,15 @@ class Carousel extends Component<IProps> {
   };
 
   handleIndexClick = (event: MouseEvent<HTMLElement>) => {
-    if(!(event.target instanceof HTMLElement)) {
+    if (!(event.target instanceof HTMLElement)) {
       return;
     }
-    
-    if(event.target.dataset.index) {
+
+    if (event.target.dataset.index) {
       this.setState({
         active: +event.target.dataset.index,
       });
     }
-    
   };
 
   render() {
