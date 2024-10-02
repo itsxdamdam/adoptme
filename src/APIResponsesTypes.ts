@@ -16,5 +16,10 @@ export interface PetAPIResponse {
   startIndex: number;
   endIndex: number;
   hasNext: boolean;
-  pets: Pet[]
+  pets: Pet[];
+}
+
+export interface BreedListAPIResponse {
+  animal: Animal;
+  breeds: string[];
 }
