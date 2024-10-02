@@ -6,12 +6,17 @@ import Modal from "./Modal";
 import ErrorBoundary from "./ErrorBoundary";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
+import { PetAPIResponse } from "./APIResponsesTypes";
 
 const Details = () => {
   const { id } = useParams();
+
+  if (!id) {
+    throw new Error("I wanted an id, i didn't get any");
+  }
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const results = useQuery(["details", id], fetchPet);
+  const results = useQuery < PetAPIResponse > (["details", id], fetchPet);
   // eslint-disable-next-line no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
@@ -23,7 +28,7 @@ const Details = () => {
     );
   }
 
-  const pet = results.data.pets[0];
+  const pet = results?.data?.pets[0];
 
   return (
     <div className="details">
